@@ -44,7 +44,7 @@ char *ft_strtrim(char const *s1, char const *set)
 	while (s1[i] && !is_set(s1[i], set))
 	  i--;
 	end_word = i;
-	word_trimed = malloc(sizeof(char) * (end_word - start_word + 1) + 1);
+	word_trimed = malloc(sizeof(char) * (end_word - start_word + 2));
 	if (!word_trimed)
 	  return (NULL);
 	i = 0;
