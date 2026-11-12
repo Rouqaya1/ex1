@@ -26,8 +26,6 @@ char static	one_pb(char *sub_str)
 	return (sub_str);
 }
 
-// Remplacer len_s par la fonction strlen directement dispo depuis la libft
-// a faire pour d'autre fonction 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub_str;
