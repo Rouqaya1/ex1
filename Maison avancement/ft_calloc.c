@@ -24,7 +24,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	if (!tab)
 		return (NULL);
 	i = 0;
-	while (i < nmemb)
+	while (i < nmemb * size)
 		tab[i++] = 0;
 	return (tab);
 }

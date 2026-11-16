@@ -17,24 +17,24 @@ static size_t	ft_count(long n)
 	size_t	i;
 
 	i = 0;
-	if (n < 0)
+	if (n <= 0)
 	{
 		i++;
 		n *= -1;
 	}
 	while (n > 0)
 	{
-		count++;
+		i++;
 		n /= 10;
 	}
-	return (count);
+	return (i);
 }
 
-static void	ft_putnbr(long n, char *s, int *i)
+static void	ft_putnbr(long n, char *s, size_t *i)
 {
-	if (n > 10)
+	if (n > 9)
 		ft_putnbr(n / 10, s, i);
-	s[*i++] = n % 10 + '0';
+	s[(*i)++] = n % 10 + '0';
 }
 
 char	*ft_itoa(int n)
@@ -55,7 +55,7 @@ char	*ft_itoa(int n)
 		s[i++] = '-';
 		nb *= -1;
 	}
-	ft_putnbr(n, s, &i);
+	ft_putnbr(nb, s, &i);
 	s[i] = '\0';
 	return (s);
 }
