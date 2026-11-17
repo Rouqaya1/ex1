@@ -6,7 +6,7 @@
 /*   By: rsiba <rsiba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 10:51:36 by rsiba             #+#    #+#             */
-/*   Updated: 2026/11/17 12:17:55 by rsiba            ###   ########.fr       */
+/*   Updated: 2026/11/17 13:32:16 by rsiba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	ft_putnbr(long n, char *s, int *i)
 char	*ft_itoa(int n)
 {
 	size_t	size;
-	size_t	i;
+	int	i;
 	long	nb;
 	char	*s;
 

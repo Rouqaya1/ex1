@@ -6,7 +6,7 @@
 /*   By: rsiba <rsiba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 13:49:56 by rsiba             #+#    #+#             */
-/*   Updated: 2026/11/16 16:25:34 by rsiba            ###   ########.fr       */
+/*   Updated: 2026/11/17 15:34:31 by rsiba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,15 @@ char	*ft_strrchr(const char *string, int c)
 {
 	int	i;
 
+	if (!string)
+		return (NULL);
 	i = 0;
 	while (string[i])
 		i++;
-	while (string[i] - 1)
+	i -= 1;
+	while (string[i])
 	{
-		if (string[i] == c)
+		if (string[i] == (unsigned char)c)
 			return ((char *)&string[i]);
 		i--;
 	}

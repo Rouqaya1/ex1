@@ -6,7 +6,7 @@
 /*   By: rsiba <rsiba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 16:03:43 by rsiba             #+#    #+#             */
-/*   Updated: 2026/11/16 16:25:39 by rsiba            ###   ########.fr       */
+/*   Updated: 2026/11/17 13:29:08 by rsiba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	while (s1[i] && i < n)
@@ -26,12 +26,13 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 			while (s2[j] && s1[i + j] == s2[j])
 				j++;
 			if (!s2[j])
-				return (&s1[i]);
+				return ((char *)&s1[i]);
 			else
 				return (NULL);
 		}
 		i++;
 	}
+	return (NULL);
 }
 
 // int main(void) {

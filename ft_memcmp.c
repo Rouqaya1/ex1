@@ -6,7 +6,7 @@
 /*   By: rsiba <rsiba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 10:32:37 by rsiba             #+#    #+#             */
-/*   Updated: 2026/11/17 12:28:11 by rsiba            ###   ########.fr       */
+/*   Updated: 2026/11/17 14:37:49 by rsiba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	str2 = (unsigned char *)s2;
 	while (i < n && str1[i] == str2[i])
 		i++;
+	if (i == n)
+		return (0);
 	return (str1[i] - str2[i]);
 }
 

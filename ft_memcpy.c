@@ -6,7 +6,7 @@
 /*   By: rsiba <rsiba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 14:11:17 by rsiba             #+#    #+#             */
-/*   Updated: 2026/11/16 16:27:34 by rsiba            ###   ########.fr       */
+/*   Updated: 2026/11/17 14:49:32 by rsiba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ void	*ft_memcpy(void *to, const void *from, size_t numBytes)
 		dest[i] = src[i];
 		i++;
 	}
+	return (dest);
 }
