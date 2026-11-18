@@ -17,7 +17,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t	i;
 
 	i = 0;
-	while (src[i] && i < size - 1)
+	while (src[i] && size > 0 && i < size - 1)
 	{
 		dst[i] = src[i];
 		i++;
@@ -26,3 +26,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		dst[i] = '\0';
 	return (ft_strlen(src));
 }
+
+// Taille = 0 : aucune écriture dans dst, retour de la longueur source
+// Taille = 1 : uniquement le '\0' doit être écrit
+// Taille = 2 : copie d'un caractère + '\0'

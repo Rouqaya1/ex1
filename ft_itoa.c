@@ -22,7 +22,6 @@ static size_t	ft_count(long n)
 		i++;
 		n *= -1;
 	}
-	i = 0;
 	while (n > 0)
 	{
 		i++;
@@ -33,7 +32,7 @@ static size_t	ft_count(long n)
 
 static void	ft_putnbr(long n, char *s, int *i)
 {
-	if (n > 10)
+	if (n > 9)
 		ft_putnbr(n / 10, s, i);
 	s[(*i)++] = n % 10 + '0';
 }

@@ -1,14 +1,11 @@
 
-#include <stdlib.h>
-#include <stdio.h>
-
-// #include "libft.h"
+#include "libft.h"
 
 static int	is_sep(char c, char sep)
 {
 	if (c == sep)
-		return (0);
-	return (1);
+		return (1);
+	return (0);
 }
 
 static int	count_word(char const *s, char sep)

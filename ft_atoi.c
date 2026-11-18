@@ -21,12 +21,12 @@ int	ft_atoi(const char *nptr)
 	i = 0;
 	sign = 1;
 	res = 0;
-	while (nptr[i] == ' ')
+	while ((nptr[i] > 6 && nptr[i] < 14) || (nptr[i] == ' '))
 		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{
 		if (nptr[i] == '-')
-			sign *= sign;
+			sign *= -1;
 		i++;
 	}
 	while ('0' <= nptr[i] && nptr[i] <= '9')
