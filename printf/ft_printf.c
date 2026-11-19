@@ -6,11 +6,10 @@
 /*   By: rsiba <rsiba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 12:17:38 by rsiba             #+#    #+#             */
-/*   Updated: 2026/11/19 13:56:38 by rsiba            ###   ########.fr       */
+/*   Updated: 2026/11/19 14:56:51 by rsiba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
 #include "print.h"
 
 void	ft_printf(const char *s, ...)
