@@ -12,19 +12,25 @@
 
 #include "print.h"
 
-void	ft_putmhex_fd(unsigned int nb, int fd)
+void	ft_puthex_fd(unsigned int nb, int fd)
 {
-	int	res;
+    size_t	i;
+    int		res;
+    char	s[8];
 
-	res = nb / 16;
-	if (res < 10)
-		ft_putchar_fd(res + '0', fd);
-	else if (nb > 9)
-		ft_putchar_fd('a' + (res - 10) - 32, fd);
-	res = nb % 16;
-	if (res < 10)
-		ft_putchar_fd(res + '0', fd);
-	else if (nb > 9)
-		ft_putchar_fd('a' + (res - 10) - 32, fd);
+	i = 0;
+	if (nb == 0) 
+		ft_putchar_fd(nb + '0', fd);
+	while (nb > 0)
+	{
+		res = nb % 16;
+		if (res < 10)
+			s[i++] = res + '0';
+		else if (res > 9)
+			s[i++] = 'A' + (res - 10);
+		nb /= 16;
+	}
+	while (i > 0)
+		ft_putchar_fd(s[--i], fd);
 }
 // A changer en majuscule seulement 
