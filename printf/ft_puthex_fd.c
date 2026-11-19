@@ -6,13 +6,24 @@
 /*   By: rsiba <rsiba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 15:18:34 by rsiba             #+#    #+#             */
-/*   Updated: 2026/11/19 15:23:08 by rsiba            ###   ########.fr       */
+/*   Updated: 2026/11/19 16:38:30 by rsiba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "print.h"
 
-void	ft_puthex_fd()
+void	ft_puthex_fd(unsigned int nb, int fd)
 {
-	
+	int	res;
+
+	res = nb / 16;
+	if (res < 10)
+		ft_putchar_fd(nb + '0', fd);
+	else if (nb > 9)
+		ft_putchar_fd('a' + (res - 10), fd);
+	res = nb % 16;
+	if (res < 10)
+		ft_putchar_fd(nb + '0', fd);
+	else if (nb > 9)
+		ft_putchar_fd('a' + (res - 10), fd);
 }
