@@ -6,11 +6,11 @@
 /*   By: rsiba <rsiba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 15:00:43 by rsiba             #+#    #+#             */
-/*   Updated: 2026/11/20 14:12:13 by rsiba            ###   ########.fr       */
+/*   Updated: 2026/11/20 16:43:20 by rsiba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "print.h"
+#include "ft_printf.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

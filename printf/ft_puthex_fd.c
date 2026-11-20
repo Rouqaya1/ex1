@@ -6,11 +6,11 @@
 /*   By: rsiba <rsiba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 15:18:34 by rsiba             #+#    #+#             */
-/*   Updated: 2026/11/20 13:44:31 by rsiba            ###   ########.fr       */
+/*   Updated: 2026/11/20 16:43:24 by rsiba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "print.h"
+#include "ft_printf.h"
 
 void	ft_puthex_fd(unsigned int nb, int fd)
 {
