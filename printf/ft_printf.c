@@ -6,7 +6,7 @@
 /*   By: rsiba <rsiba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 12:17:38 by rsiba             #+#    #+#             */
-/*   Updated: 2026/11/20 13:21:12 by rsiba            ###   ########.fr       */
+/*   Updated: 2026/11/20 14:12:27 by rsiba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	ft_printf(const char *s, ...)
 	while (s[i])
 	{
 		if (s[i] == '%')
+		{
 			if (s[i + 1] == 'c')
 				ft_putchar_fd(va_arg(args, char), fd);
 			else if (s[i + 1] == 's')
@@ -36,11 +37,12 @@ void	ft_printf(const char *s, ...)
 			else if (s[i + 1] == 'h')
 				ft_puthex_fd(va_arg(args, int), fd);
 			else if (s[i + 1] == 'H')
-				ft_putmajhex_fd(va_arg(args, int), fd);
+				ft_putmhex_fd(va_arg(args, int), fd);
 			else if (s[i + 1] == 'p')
 				ft_putptr_fd(va_arg(args, void *), fd);
 			else
-				ft_putchar(s[i], fd);
+				ft_putchar_fd(s[i], fd);
+		}
 		s++;
 	}
 }

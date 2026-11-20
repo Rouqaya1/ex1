@@ -6,7 +6,7 @@
 /*   By: rsiba <rsiba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 15:18:34 by rsiba             #+#    #+#             */
-/*   Updated: 2026/11/20 12:16:18 by rsiba            ###   ########.fr       */
+/*   Updated: 2026/11/20 13:44:31 by rsiba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_puthex_fd(unsigned int nb, int fd)
 	char	s[8];
 
 	i = 0;
-	if (nb == 0) 
+	if (nb == 0)
 		ft_putchar_fd(nb + '0', fd);
 	while (nb > 0)
 	{
