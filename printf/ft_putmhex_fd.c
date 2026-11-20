@@ -6,7 +6,7 @@
 /*   By: rsiba <rsiba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 16:40:10 by rsiba             #+#    #+#             */
-/*   Updated: 2026/11/19 16:50:23 by rsiba            ###   ########.fr       */
+/*   Updated: 2026/11/20 12:13:19 by rsiba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_puthex_fd(unsigned int nb, int fd)
 {
-    size_t	i;
-    int		res;
-    char	s[8];
+	size_t	i;
+	int		res;
+	char	s[8];
 
 	i = 0;
-	if (nb == 0) 
+	if (nb == 0)
 		ft_putchar_fd(nb + '0', fd);
 	while (nb > 0)
 	{
@@ -33,4 +33,3 @@ void	ft_puthex_fd(unsigned int nb, int fd)
 	while (i > 0)
 		ft_putchar_fd(s[--i], fd);
 }
-// A changer en majuscule seulement 

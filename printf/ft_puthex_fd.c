@@ -6,7 +6,7 @@
 /*   By: rsiba <rsiba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 15:18:34 by rsiba             #+#    #+#             */
-/*   Updated: 2026/11/19 16:47:55 by rsiba            ###   ########.fr       */
+/*   Updated: 2026/11/20 12:16:18 by rsiba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_puthex_fd(unsigned int nb, int fd)
 {
-    size_t	i;
-    int		res;
-    char	s[8];
+	size_t	i;
+	int		res;
+	char	s[8];
 
 	i = 0;
 	if (nb == 0) 
