@@ -16,13 +16,13 @@
 # include <stdarg.h>
 # include <unistd.h>
 
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-void	ft_putunbr_fd(unsigned int n, int fd);
-void	ft_putmhex_fd(unsigned int nb, int fd);
-void	ft_puthex_fd(unsigned int nb, int fd);
-void	ft_printf(const char *s, ...);
-void	ft_putptr_fd(void *ptr, int fd);
+int	ft_putchar_fd(char c, int fd);
+int	ft_putstr_fd(char *s, int fd);
+int	ft_putnbr_fd(int n, int fd);
+int	ft_putunbr_fd(unsigned int n, int fd);
+int	ft_putmhex_fd(unsigned int nb, int fd);
+int	ft_puthex_fd(unsigned int nb, int fd);
+int ft_printf(const char *format, ...);
+int	ft_putptr_fd(void *ptr, int fd);
 
 #endif

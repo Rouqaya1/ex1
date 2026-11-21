@@ -13,15 +13,17 @@
 #include "ft_printf.h"
 
 // caster peut etre le pointeur en long long
-void	ft_putptr_fd(void *ptr, int fd)
+int	ft_putptr_fd(void *ptr, int fd)
 {
 	unsigned long long	p;
 	size_t				i;
+	int					count;
 	int					res;
 	char				s[16];
 
 	p = (unsigned long long)ptr;
 	i = 0;
+	count = 0;
 	ft_putstr_fd("0x", 1);
 	while (p > 0)
 	{
@@ -32,6 +34,8 @@ void	ft_putptr_fd(void *ptr, int fd)
 			s[i++] = 'a' + (res - 10);
 		p /= 16;
 	}
+	count += i;
 	while (i > 0)
 		ft_putchar_fd(s[--i], fd);
+	return (count);
 }

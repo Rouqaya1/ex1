@@ -12,52 +12,59 @@
 
 #include "ft_printf.h"
 
+// IL FAUT MOFIFIER LES COUNT ET METTRE UN RETURN A LA PLACE ASKIP ET LAISSER SEULEMENT 
+// LE IF DU PRINT PCK LA J'ADDITIONNE DOULEMENT 
 static int	ft_conv(va_list *args, char c,  int fd)
 {
 	if (c == 'c')
-		ft_putchar_fd((char)va_arg(*args, int), fd);
+		return (ft_putchar_fd((char)va_arg(*args, int), fd));
 	else if (c == 's')
-		ft_putstr_fd(va_arg(*args, char *), fd);
+		return (ft_putstr_fd(va_arg(*args, char *), fd));
 	else if (c == 'd' || c == 'i')
-		ft_putnbr_fd(va_arg(*args, int), fd);
+		return (ft_putnbr_fd(va_arg(*args, int), fd));
 	else if (c == 'u')
-		ft_putunbr_fd(va_arg(*args, unsigned int), fd);
+		return (ft_putunbr_fd(va_arg(*args, unsigned int), fd));
 	else if (c == 'h')
-		ft_puthex_fd(va_arg(*args, int), fd);
+		return (ft_puthex_fd(va_arg(*args, int), fd));
 	else if (c == 'H')
-		ft_putmhex_fd(va_arg(*args, int), fd);
+		return (ft_putmhex_fd(va_arg(*args, int), fd));
 	else if (c == 'p')
-		ft_putptr_fd(va_arg(*args, void *), fd);
+		return (ft_putptr_fd(va_arg(*args, void *), fd));
 	else if (c == '%')
-		ft_putchar_fd('%', fd);
+		return (ft_putchar_fd('%', fd));
 	else
 		return (0);
-	return (1);
 }
 
 // petit soucis ici c'est quu'il faut que je regarde la lettre apres un %
 // du coup *s + 1 si un rencontre un % toutefois si on rencontre un % et 
 // aue la apres c'est rien de toute les lettre demander l'affiche simplement
-void	ft_printf(const char *s, ...)
+int ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		fd;
+	int		count;
 	int		i;
 
-	va_start(args, s);
+	va_start(args, format);
 	fd = 1;
 	i = 0;
-	while (s[i])
+	count = 0;
+	while (format[i])
 	{
-		if (s[i] == '%' && s[i + 1])
+		if (format[i] == '%' && format[i + 1])
 		{
-			if (!ft_conv(&args, s[i + 1], fd))
-				ft_putchar_fd(s[i++], fd);
-			else
+			if (ft_conv(&args, format[i + 1], fd))
+			{
+				count += ft_putchar_fd(format[i++], fd);
 				i += 2;
+			}
+			else
+				count += ft_putchar_fd(format[i++], fd);
 		}
 		else
-			ft_putchar_fd(s[i++], fd);
+			count += ft_putchar_fd(format[i++], fd);
 	}
 	va_end(args);
+	return (count);
 }
