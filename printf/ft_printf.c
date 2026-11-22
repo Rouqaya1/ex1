@@ -24,10 +24,10 @@ static int	ft_conv(va_list *args, char c,  int fd)
 		return (ft_putnbr_fd(va_arg(*args, int), fd));
 	else if (c == 'u')
 		return (ft_putunbr_fd(va_arg(*args, unsigned int), fd));
-	else if (c == 'h')
-		return (ft_puthex_fd(va_arg(*args, int), fd));
-	else if (c == 'H')
-		return (ft_putmhex_fd(va_arg(*args, int), fd));
+	else if (c == 'x')
+		return (ft_puthex_fd(va_arg(*args, unsigned int), fd));
+	else if (c == 'X')
+		return (ft_putmhex_fd(va_arg(*args, unsigned int), fd));
 	else if (c == 'p')
 		return (ft_putptr_fd(va_arg(*args, void *), fd));
 	else if (c == '%')
@@ -43,6 +43,7 @@ int ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		fd;
+	int		res;
 	int		count;
 	int		i;
 
@@ -54,9 +55,10 @@ int ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%' && format[i + 1])
 		{
-			if (ft_conv(&args, format[i + 1], fd))
+			res = ft_conv(&args, format[i + 1], fd);
+			if (res >= 0)
 			{
-				count += ft_putchar_fd(format[i++], fd);
+				count += res;
 				i += 2;
 			}
 			else

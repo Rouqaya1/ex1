@@ -23,8 +23,9 @@ int	ft_putptr_fd(void *ptr, int fd)
 
 	p = (unsigned long long)ptr;
 	i = 0;
-	count = 0;
-	ft_putstr_fd("0x", 1);
+	if (!p)
+		return (ft_putstr_fd("(nil)", fd));
+	count = ft_putstr_fd("0x", fd);
 	while (p > 0)
 	{
 		res = p % 16;

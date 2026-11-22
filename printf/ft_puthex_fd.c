@@ -14,15 +14,14 @@
 
 int	ft_puthex_fd(unsigned int nb, int fd)
 {
-	int	count; 
-	size_t	i;
+	int		count; 
+	int		i;
 	int		res;
 	char	s[8];
 
 	i = 0;
-	count = 0;
-	if (nb == 0)
-		ft_putchar_fd(nb + '0', fd);
+	if (nb < 10)
+		return (ft_putchar_fd(nb + '0', fd));
 	while (nb > 0)
 	{
 		res = nb % 16;
@@ -32,7 +31,7 @@ int	ft_puthex_fd(unsigned int nb, int fd)
 			s[i++] = 'a' + (res - 10);
 		nb /= 16;
 	}
-	count += i;
+	count = i;
 	while (i > 0)
 		ft_putchar_fd(s[--i], fd);
 	return (count);

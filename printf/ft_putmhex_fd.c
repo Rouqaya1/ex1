@@ -14,7 +14,7 @@
 
 int	ft_putmhex_fd(unsigned int nb, int fd)
 {
-	size_t	i;
+	int		i;
 	int		res;
 	char	s[8];
 	int		count; 
@@ -22,7 +22,7 @@ int	ft_putmhex_fd(unsigned int nb, int fd)
 	i = 0;
 	count = 0;
 	if (nb == 0)
-		ft_putchar_fd(nb + '0', fd);
+		return (ft_putchar_fd(nb + '0', fd));
 	while (nb > 0)
 	{
 		res = nb % 16;
@@ -32,7 +32,7 @@ int	ft_putmhex_fd(unsigned int nb, int fd)
 			s[i++] = 'A' + (res - 10);
 		nb /= 16;
 	}
-	count += i;
+	count = i;
 	while (i > 0)
 		ft_putchar_fd(s[--i], fd);
 	return (count);
