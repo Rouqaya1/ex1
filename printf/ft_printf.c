@@ -6,7 +6,7 @@
 /*   By: rsiba <rsiba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 12:17:38 by rsiba             #+#    #+#             */
-/*   Updated: 2026/11/24 12:46:38 by rsiba            ###   ########.fr       */
+/*   Updated: 2026/11/24 13:27:29 by rsiba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,19 @@ static int	ft_conv(va_list *args, char c, int fd)
 		return (0);
 }
 
-int	ft_printf(const char *format, ...)
+static int	print_condition_loop(va_list *args, const char *format)
 {
-	va_list	args;
 	int		res;
 	int		count;
 	int		i;
 
-	va_start(args, format);
 	i = 0;
 	count = 0;
 	while (format[i])
 	{
 		if (format[i] == '%' && format[i + 1])
 		{
-			res = ft_conv(&args, format[i + 1], 1);
+			res = ft_conv(args, format[i + 1], 1);
 			if (res >= 0)
 			{
 				count += res;
@@ -60,6 +58,16 @@ int	ft_printf(const char *format, ...)
 		else
 			count += ft_putchar_fd(format[i++], 1);
 	}
+	return (count);
+}
+
+int	ft_printf(const char *format, ...)
+{
+	va_list	args;
+	int		count;
+
+	va_start(args, format);
+	count = print_condition_loop(&args, format);
 	va_end(args);
 	return (count);
 }
