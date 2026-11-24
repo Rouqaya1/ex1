@@ -30,6 +30,8 @@ static int	ft_conv(va_list *args, char c, int fd)
 		return (ft_putptr_fd(va_arg(*args, void *), fd));
 	else if (c == '%')
 		return (ft_putchar_fd('%', fd));
+	else if (c == 'a')
+		return (write(fd, "my awsome 42", 13));
 	else
 		return (0);
 }
@@ -66,6 +68,8 @@ int	ft_printf(const char *format, ...)
 	va_list	args;
 	int		count;
 
+	if(!format)
+		return (-1);
 	va_start(args, format);
 	count = print_condition_loop(&args, format);
 	va_end(args);
