@@ -6,13 +6,13 @@
 #    By: rsiba <rsiba@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/20 13:48:48 by rsiba             #+#    #+#              #
-#    Updated: 2026/11/20 14:06:21 by rsiba            ###   ########.fr        #
+#    Updated: 2026/11/24 12:10:17 by rsiba            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fPIC
 SRCS = ft_printf.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \

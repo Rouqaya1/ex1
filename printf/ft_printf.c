@@ -6,15 +6,13 @@
 /*   By: rsiba <rsiba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 12:17:38 by rsiba             #+#    #+#             */
-/*   Updated: 2026/11/20 16:43:13 by rsiba            ###   ########.fr       */
+/*   Updated: 2026/11/24 12:35:02 by rsiba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-// IL FAUT MOFIFIER LES COUNT ET METTRE UN RETURN A LA PLACE ASKIP ET LAISSER SEULEMENT 
-// LE IF DU PRINT PCK LA J'ADDITIONNE DOULEMENT 
-static int	ft_conv(va_list *args, char c,  int fd)
+static int	ft_conv(va_list *args, char c, int fd)
 {
 	if (c == 'c')
 		return (ft_putchar_fd((char)va_arg(*args, int), fd));
@@ -36,36 +34,31 @@ static int	ft_conv(va_list *args, char c,  int fd)
 		return (0);
 }
 
-// petit soucis ici c'est quu'il faut que je regarde la lettre apres un %
-// du coup *s + 1 si un rencontre un % toutefois si on rencontre un % et 
-// aue la apres c'est rien de toute les lettre demander l'affiche simplement
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	int		fd;
 	int		res;
 	int		count;
 	int		i;
 
 	va_start(args, format);
-	fd = 1;
 	i = 0;
 	count = 0;
 	while (format[i])
 	{
 		if (format[i] == '%' && format[i + 1])
 		{
-			res = ft_conv(&args, format[i + 1], fd);
+			res = ft_conv(&args, format[i + 1], 1);
 			if (res >= 0)
 			{
 				count += res;
 				i += 2;
 			}
 			else
-				count += ft_putchar_fd(format[i++], fd);
+				count += ft_putchar_fd(format[i++], 1);
 		}
 		else
-			count += ft_putchar_fd(format[i++], fd);
+			count += ft_putchar_fd(format[i++], 1);
 	}
 	va_end(args);
 	return (count);

@@ -6,7 +6,7 @@
 /*   By: rsiba <rsiba@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 16:40:10 by rsiba             #+#    #+#             */
-/*   Updated: 2026/11/20 16:43:27 by rsiba            ###   ########.fr       */
+/*   Updated: 2026/11/24 12:17:20 by rsiba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_putmhex_fd(unsigned int nb, int fd)
 	int		i;
 	int		res;
 	char	s[8];
-	int		count; 
+	int		count;
 
 	i = 0;
 	count = 0;
